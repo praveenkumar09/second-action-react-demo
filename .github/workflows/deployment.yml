@@ -15,6 +15,7 @@ jobs:
             - name: Run Tests
               run: npm test  
     deploy-job:
+      needs: checkoutAndInstall-job
       runs-on: ubuntu-latest
       steps:
             - name: Checkout Code
