@@ -1,0 +1,32 @@
+name: Deploy Project
+on: push
+jobs:
+    checkoutAndInstall-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install Dependencies
+              run: npm ci
+            - name: Run Tests
+              run: npm test  
+    deploy-job:
+      runs-on: ubuntu-latest
+      steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install Dependencies
+              run: npm ci
+            - name: Build Project
+              run: npm run build
+            - name: Deploy
+              run: echo "Deploying...."  
+            
