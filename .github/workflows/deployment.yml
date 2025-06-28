@@ -1,5 +1,5 @@
 name: Deploy Project
-on: [push, workflow-dispatch]
+on: [push, workflow_dispatch]
 jobs:
     checkoutAndInstall-job:
         runs-on: ubuntu-latest
